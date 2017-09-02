@@ -18,7 +18,7 @@ module.exports = {
           'babel-loader',
         ],
       },
-    ],
+    ]
   },
   resolve: {
     modules: [

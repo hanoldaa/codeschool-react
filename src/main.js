@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Counter from './Counter.js';
+import CommentBox from './CommentBox.js';
 
 document.addEventListener('DOMContentLoaded', function(){
     ReactDOM.render(
-        React.createElement(Counter),
+        React.createElement(CommentBox),
         document.getElementById('mount')
     );
 });

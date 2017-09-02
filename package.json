@@ -14,7 +14,7 @@
   "description": "My Project",
   "keywords": [],
   "license": "ISC",
-  "main": "index.js",
+  "main": "main.js",
   "name": "codeschool-react",
   "start": "node server.js",
   "scripts": {
