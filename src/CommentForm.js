@@ -5,8 +5,21 @@ class CommentForm extends React.Component{
 
     render(){
 
+        const back = {
+            color: 'white',
+            padding: 10,
+            backgroundColor: '#003060',
+            borderRadius: 8,
+            borderStyle: 'none',
+            fontStyle: 'bold',
+            width: 420
+        }
+
         const formStyle = {
-            display: 'block'
+            backgroundColor: 'white',
+            color: 'black',
+            marginBottom: 4,
+            width: 400
         }
 
 
@@ -16,18 +29,18 @@ class CommentForm extends React.Component{
             color: 'white',
             fontSize: 12,
             textDecoration: 'none',
-            backgroundColor: '#003060',
+            backgroundColor: '#0050A0',
             borderRadius: 4,
             borderStyle: 'none'
         }
 
 
         return(
-            <form style={formStyle} className="comment-form" onSubmit={this._handleSubmit.bind(this)}>
+            <form style={back} className="comment-form" onSubmit={this._handleSubmit.bind(this)}>
                 <label>Join the discussion!</label>
                 <div className="comment-form-fields">
-                    <div><input placeholder="Name: " ref={(input) => this._author = input}/></div>
-                    <div><textarea placeholder="Comment: " 
+                    <div><input style={formStyle} placeholder="Name: " ref={(input) => this._author = input}/></div>
+                    <div><textarea style={formStyle} placeholder="Comment: " 
                             ref={(textarea) => this._body = textarea}
                             onKeyUp={this._getCharacterCount.bind(this)}
                         >
