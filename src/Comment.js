@@ -65,10 +65,10 @@ class Comment extends React.Component {
                 </p>
                 <div className="comment-footer" style={footerStyle}>
                     <a href="#" className="comment-footer-delete" style={linkStyle}>
-                        Delete
+                        DELETE
                     </a>
                     <a href="#" onClick={this._toggleAbuse.bind(this)} className="comment-footer-abuse" style={linkStyle}>
-                        Report Abuse
+                        REPORT ABUSE
                     </a>
                 </div>
             </div>

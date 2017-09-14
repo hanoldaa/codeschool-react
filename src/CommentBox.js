@@ -1,16 +1,17 @@
 import React from 'react';
 import Comment from './Comment.js';
+import CommentForm from './CommentForm.js';
 
 class CommentBox extends React.Component{
 
     _getComments(){
-        const commentList = [
-            {id:0, author:'Morgan Circuit', body:'Great Picture!'},
-            {id:1, author:'Bending Bender', body:'Excellent stuff!'}
-        ];
-
-        return commentList.map((comment) => {
-            return (<Comment author={comment.author} body={comment.body} key={comment.id}/>);
+        return this.state.comments.map((comment) => {
+            return (
+                <Comment 
+                    author={comment.author} 
+                    body={comment.body} 
+                    key={comment.id}/>
+            );
         });
     }
 
@@ -27,7 +28,11 @@ class CommentBox extends React.Component{
         super();
 
         this.state = {
-            showComments : false
+            showComments : false,
+            comments: [
+                {id:0, author:'Morgan Circuit', body:'Great Picture!'},
+                {id:1, author:'Bending Bender', body:'Excellent stuff!'}
+            ]
         };
     }
 
@@ -57,16 +62,17 @@ class CommentBox extends React.Component{
         }
 
         let commentNodes;
-        let commentButtonText = 'Show Comments';
+        let commentButtonText = 'SHOW COMMENTS';
 
         if (this.state.showComments){
             // Code to show comments
             commentNodes = <div className="comment-list">{comments}</div>;
-            commentButtonText = 'Hide Comments';
+            commentButtonText = 'HIDE COMMENTS';
         }
 
         return (
             <div className="comment-box" style={style}>
+                <CommentForm addComment={this._addComment.bind(this)}/>
                 <span style={headerStyle}>
                     <h1 style={headerStyle} className="comment-count">{this._getCommentsTitle(comments.length)}</h1>
                     <button onClick={this._handleClick.bind(this)} style={buttonStyle}>{commentButtonText}</button>
@@ -80,6 +86,15 @@ class CommentBox extends React.Component{
         this.setState({
             showComments: !this.state.showComments
         });
+    }
+
+    _addComment(author, body){
+        const comment = {
+            id: this.state.comments.length + 1,
+            author,
+            body
+        };
+        this.setState({ comments: this.state.comments.concat(comment) });
     }
 }
 export default CommentBox;
